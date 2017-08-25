@@ -25,12 +25,13 @@ module.exports = {
         modules: [path.resolve(__dirname, '..', 'node_modules')],
         alias: {
             _src: src,
-            _views: path.join(app, 'views'),
-            _store: path.join(src, 'store'),
-            _services: path.join(src, 'services'),
+            _npm: path.join(__dirname, '..', 'node_modules'),
             _sass: path.join(src, 'assets', 'scss'),
-            _component: path.join(app, 'components'),
-            _npm: path.join(__dirname, '..', 'node_modules')
+            _store: path.join(src, 'store'),
+            _views: path.join(app, 'views'),
+            _images: path.join(src, 'assets', 'images'),
+            _services: path.join(src, 'services'),
+            _components: path.join(app, 'components')
         }
     },
     module: {
@@ -58,6 +59,14 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loaders: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: '[name].[ext]?[hash]'
+                }
             },
             {
                 test: /\.(eot|otf|ttf|woff|woff2)(\?v=[a-z0-9=\.]+)?$/,

@@ -1,0 +1,11 @@
+.application {
+    > main {
+        >.container {
+            min-height: calc(100vh - #{$header-height}) !important;
+        }
+    }
+}
+
+.toolbar__content {
+    height: $header-height !important;
+}
