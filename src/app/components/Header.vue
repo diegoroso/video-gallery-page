@@ -9,12 +9,12 @@
             <search class="hidden-xs-only"></search>
             <div @mouseover="menuOpen" @mouseleave="menuClose" class="toolbar__menu hidden-xs-only mr-4">
                 <span class="mr-2">MENU</span>
-                <v-icon dark>dehaze</v-icon>
+                <ico icon="menu-ico"></ico>
                 <div v-show="menu" class="content-menu pa-2">
                     <v-list class="pa-0">
                         <v-list-tile v-for="item in items" :key="item.title">
                             <v-list-tile-action class="content-menu__icon">
-                                <v-icon>{{ item.icon }}</v-icon>
+                                <ico :icon="item.icon"></ico>
                             </v-list-tile-action>
                             <v-list-tile-content>
                                 <v-list-tile-title v-text="item.title"></v-list-tile-title>
@@ -23,8 +23,9 @@
                     </v-list>
                 </div>
             </div>
-            <div class="hidden-sm-and-up">
-                <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <div @click.stop="drawer = !drawer" class="toolbar__ico hidden-sm-and-up">
+                <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon> -->
+                <ico class="toolbar__ico__menu" icon="menu-ico"></ico>
             </div>
         </v-toolbar>
 
@@ -40,7 +41,7 @@
                 <v-list class="navigation__menu py-0">
                     <v-list-tile v-for="item in items" :key="item.title">
                         <v-list-tile-action>
-                            <v-icon class="white--text">{{ item.icon }}</v-icon>
+                            <ico :icon="item.icon"></ico>
                         </v-list-tile-action>
                         <v-list-tile-content>
                             <v-list-tile-title class="white--text">{{ item.title }}</v-list-tile-title>
@@ -54,12 +55,14 @@
 </template>
 
 <script>
+    import Ico from '_components/Icons.vue'
     import Search from '_components/Search.vue'
 
     export default {
         name: 'Header',
 
         components: {
+            Ico,
             Search
         },
 
@@ -68,8 +71,8 @@
                 drawer: false,
                 menu: false,
                 items: [
-                    { icon: 'star', title: 'Destaques' },
-                    { icon: 'star', title: 'Vídeos' }
+                    { icon: 'star-ico', title: 'Destaques' },
+                    { icon: 'video-ico', title: 'Vídeos' }
                 ]
             }
         },
@@ -109,6 +112,7 @@
                     right: -15px;
                     width: 270px;
                     border: 1px solid #c8c8c8;
+                    z-index: 1;
                     position: absolute;
                     background: #fff;
                     border-radius: 5px;
@@ -130,6 +134,16 @@
                     }
                 }
             }
+
+            &__ico {
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+
+                &__menu {
+                    position: absolute;
+                }
+            }
         }
 
         .navigation {
@@ -137,7 +151,7 @@
 
             &__menu {
                 position: relative;
-                background-color: $color-default !important;
+                background-color: #d3527b !important;
             }
 
             &__close {

@@ -1,29 +1,35 @@
 <template>
     <div :class="[{'animate' : animate}, 'input-search mr-4']">
         <input ref="input" type="text">
-        <v-icon @click="focusInput" class="input-search__icon" dark>search</v-icon>
+        <ico icon="search-ico" @click="focusInput" class="input-search__icon mr-2"></ico>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'InputSearch',
+    import Ico from '_components/Icons.vue'
 
-    props: {
-        animate: {
-            type: Boolean,
-            default: true
-        }
-    },
+    export default {
+        name: 'InputSearch',
 
-    methods: {
-        focusInput () {
-            if (this.animate) {
-                this.$refs.input.focus()
+        components: {
+            Ico
+        },
+
+        props: {
+            animate: {
+                type: Boolean,
+                default: true
+            }
+        },
+
+        methods: {
+            focusInput () {
+                if (this.animate) {
+                    this.$refs.input.focus()
+                }
             }
         }
     }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -31,6 +37,7 @@ export default {
         height: 34px;
         display: flex;
         position: relative;
+        align-items: center;
 
         input {
             color: #FFF;
@@ -40,6 +47,7 @@ export default {
             padding: 6px;
             outline: none;
             border-radius: 5px;
+            padding-right: 25px;
 
             &:focus {
                 cursor: text;
@@ -57,7 +65,6 @@ export default {
 
             .input-search__icon {
                 right: 5px;
-                height: 34px;
                 position: absolute;
             }
         }

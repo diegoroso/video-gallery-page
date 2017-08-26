@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Default from '_views/Default.vue'
+import FeaturedPage from '_views/FeaturedPage.vue'
 
 Vue.use(Router)
 
@@ -11,7 +11,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: Default
+            component: FeaturedPage
         }
     ]
 })
