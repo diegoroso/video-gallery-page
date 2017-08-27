@@ -6,7 +6,7 @@
             <div class="thumb__media__shadow"></div>
         </div>
         <div class="thumb__description">
-            <div class="thumb__description__titles headline" v-text="title"></div>
+            <p class="thumb__description__titles ma-0" v-text="title"></p>
             <div class="thumb__description__views"><ico icon="views-ico gray-ico mr-2"></ico> {{ views }} views</div>
         </div>
     </div>
@@ -92,6 +92,13 @@
             align-content: space-between;
 
             &__titles {
+                display: -webkit-box;
+                overflow: hidden;
+                font-size: 18px;
+                line-height: 20px;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+
                 @media (max-width: 599px) {
                     margin: 10px 0px;
                 }

@@ -1,6 +1,6 @@
 <template>
     <div :class="[{'animate' : animate}, 'input-search mr-4']">
-        <input ref="input" type="text">
+        <input v-on:keyup.enter="search" v-model="searchValue" ref="input" type="text">
         <ico icon="search-ico" @click="focusInput" class="input-search__icon mr-2"></ico>
     </div>
 </template>
@@ -22,11 +22,20 @@
             }
         },
 
+        data () {
+            return {
+                searchValue: ''
+            }
+        },
+
         methods: {
             focusInput () {
                 if (this.animate) {
                     this.$refs.input.focus()
                 }
+            },
+            search () {
+                alert(this.searchValue)
             }
         }
     }

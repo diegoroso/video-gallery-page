@@ -11,7 +11,7 @@
                 <ico icon="menu-ico"></ico>
                 <div v-show="menu" class="content-menu pa-2">
                     <v-list class="pa-0">
-                        <v-list-tile v-for="item in items" :key="item.title">
+                        <v-list-tile v-for="item in items" :key="item.title" :href="item.href">
                             <v-list-tile-action class="content-menu__icon">
                                 <ico :icon="item.icon"></ico>
                             </v-list-tile-action>
@@ -68,8 +68,8 @@
                 drawer: false,
                 menu: false,
                 items: [
-                    { icon: 'star-ico', title: 'Destaques' },
-                    { icon: 'video-ico', title: 'Vídeos' }
+                    { icon: 'star-ico', title: 'Destaques', href: '/' },
+                    { icon: 'video-ico', title: 'Vídeos', href: '/videos' }
                 ]
             }
         },
