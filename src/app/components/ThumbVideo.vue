@@ -1,0 +1,107 @@
+<template>
+    <div class="thumb">
+        <div class="thumb__media mr-2">
+            <div class="thumb__media__img" :style="`background-image: url(${image});`"></div>
+            <div class="thumb__media__time px-1" v-text="time"></div>
+            <div class="thumb__media__shadow"></div>
+        </div>
+        <div class="thumb__description">
+            <div class="thumb__description__titles headline" v-text="title"></div>
+            <div class="thumb__description__views"><ico icon="views-ico gray-ico mr-2"></ico> {{ views }} views</div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import Ico from '_components/Icons.vue'
+
+    export default {
+        name: 'ThumbVideo',
+
+        components: {
+            Ico
+        },
+
+        props: {
+            image: {
+                type: String,
+                required: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            views: {
+                type: String,
+                required: true
+            },
+            time: {
+                type: String,
+                required: true
+            }
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+    .thumb {
+        @media (min-width: 600px) {
+            display: flex;
+        }
+
+        &__media {
+            position: relative;
+            max-height: 95px;
+
+            @media (max-width: 599px) {
+                width: 100%;
+                max-height: 150px;
+            }
+
+            &__img {
+                width: 170px;
+                height: 95px;
+
+                @media (max-width: 599px) {
+                    width: 100%;
+                    height: 150px;
+                }
+            }
+
+            &__shadow {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            &__time {
+                right: 10px;
+                color: #fff;
+                bottom: 0;
+                position: absolute;
+                background: rgba(0, 0, 0, 0.6);
+                font-weight: bold;
+            }
+        }
+
+        &__description {
+            display: grid;
+            align-content: space-between;
+
+            &__titles {
+                @media (max-width: 599px) {
+                    margin: 10px 0px;
+                }
+            }
+
+            &__views {
+                display: flex;
+                color: #c8c8c8;
+                font-weight: bold;
+            }
+        }
+    }
+</style>

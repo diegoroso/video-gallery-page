@@ -19,6 +19,7 @@
     .ico {
         background: url('~_images/icons.png');
         background-repeat: no-repeat;
+        display: inline-block;
 
         &.star-ico {
             width: 24px;
@@ -52,8 +53,8 @@
             width: 24px;
             height: 19px;
             &.gray-ico {
-                background-position-x: 0px;
-                background-position-y: 0px;
+                background-position-x: -25px;
+                background-position-y: -42px;
             }
             &.blue-ico {
                 background-position-x: 0px;

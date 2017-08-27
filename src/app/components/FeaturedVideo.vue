@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <iframe src="https://www.youtube.com/embed/VideoId?iv_load_policy=3&modestbranding=1&rel=0&autoplay=1&showinfo=0" frameborder="0"></iframe> -->
+        <iframe src="https://www.youtube.com/embed/VideoId?iv_load_policy=3&modestbranding=1&rel=0&autoplay=1&showinfo=0" frameborder="0"></iframe>
         <v-card class="card-description mt-4 pa-4">
             <description></description>
             <div class="shadow-effect"></div>

@@ -1,6 +1,5 @@
 <template>
     <div class="main-header">
-
         <v-toolbar class="toolbar" dark>
             <v-toolbar-title class="toolbar__logo">
                 <img src="~_images/logo.png"></img>
@@ -24,7 +23,6 @@
                 </div>
             </div>
             <div @click.stop="drawer = !drawer" class="toolbar__ico hidden-sm-and-up">
-                <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon> -->
                 <ico class="toolbar__ico__menu" icon="menu-ico"></ico>
             </div>
         </v-toolbar>
@@ -50,7 +48,6 @@
                 </v-list>
             </v-card>
         </v-navigation-drawer>
-
     </div>
 </template>
 
