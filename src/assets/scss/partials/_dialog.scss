@@ -1,0 +1,9 @@
+.dialog {
+    width: 560px !important;
+    margin: 0;
+    position: relative;
+
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+}

@@ -1,18 +1,24 @@
 <template>
     <div>
-        <div class="title">Lorem ipsum, dolor sit.</div>
-        <div class="body-1 mt-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae architecto quaerat harum quod corporis aut perferendis, eos atque. Et sunt obcaecati neque perferendis aut suscipit quo quia, atque officia deleniti!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae architecto quaerat harum quod corporis aut perferendis, eos atque. Et sunt obcaecati neque perferendis aut suscipit quo quia, atque officia deleniti!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae architecto quaerat harum quod corporis aut perferendis, eos atque. Et sunt obcaecati neque perferendis aut suscipit quo quia, atque officia deleniti!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae architecto quaerat harum quod corporis aut perferendis, eos atque. Et sunt obcaecati neque perferendis aut suscipit quo quia, atque officia deleniti!
-        </div>
+        <div class="title" v-text="title"></div>
+        <div class="body-1 mt-3" v-text="description"></div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'DescriptionVideo'
+        name: 'DescriptionVideo',
+
+        props: {
+            title: {
+                type: String,
+                required: true
+            },
+            description: {
+                type: String,
+                required: true
+            }
+        }
     }
 </script>
 
