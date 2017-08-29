@@ -21,6 +21,10 @@
         components: {
             ListVideos,
             FeaturedVideo
+        },
+
+        mounted () {
+            this.$store.dispatch('getVideos')
         }
     }
 </script>

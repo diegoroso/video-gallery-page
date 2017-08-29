@@ -1,12 +1,10 @@
 <template>
     <v-card class="pa-4">
-        <template v-for="(item, index) in items">
+        <template v-for="(video, index) in videos">
             <thumb-video
                 :key="index"
-                :image="item.image"
-                :title="item.title"
-                :time="item.time"
-                :views="item.views"
+                :video="video"
+                class="mb-4"
             ></thumb-video>
         </template>
         <v-btn
@@ -28,17 +26,15 @@
             ThumbVideo
         },
 
+        computed: {
+            videos () {
+                return this.$store.state.videos.data
+            }
+        },
+
         data () {
             return {
-                loader: false,
-                items: [
-                    {
-                        image: 'https://blog.emania.com.br/content/uploads/2015/12/Papel-de-Parede-de-Paisagem.jpg',
-                        title: 'Mapa VAGAS',
-                        time: '2:30',
-                        views: '729'
-                    }
-                ]
+                loader: false
             }
         },
 

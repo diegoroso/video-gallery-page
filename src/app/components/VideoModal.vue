@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="open" absolute>
+    <v-dialog v-if="open" v-model="open" absolute>
         <v-icon @click="closeModal" class="close">close</v-icon>
         <v-card class="pa-4">
             <iframe class="mt-4" src="https://www.youtube.com/embed/UCOeXqjAWfc?iv_load_policy=3&modestbranding=1&rel=0&autoplay=1&showinfo=0" frameborder="0"></iframe>
@@ -20,7 +20,7 @@
 
         data () {
             return {
-                open: true
+                open: false
             }
         },
 

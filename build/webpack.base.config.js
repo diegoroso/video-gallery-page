@@ -26,6 +26,7 @@ module.exports = {
         alias: {
             _src: src,
             _npm: path.join(__dirname, '..', 'node_modules'),
+            _config: path.join(__dirname, '..', 'config'),
             _sass: path.join(src, 'assets', 'scss'),
             _store: path.join(src, 'store'),
             _views: path.join(app, 'views'),
