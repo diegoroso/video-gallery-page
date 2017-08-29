@@ -13,7 +13,6 @@
     "rules": {
         "global-require": 0,
         "arrow-spacing": 2,
-        "arrow-body-style": 0,
         "keyword-spacing": 2,
         "no-unused-vars": 1,
         "no-var": 2,

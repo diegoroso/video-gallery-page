@@ -2,7 +2,7 @@
     <v-layout row wrap>
         <v-flex class="px-3" xs12 md7 lg8>
             <div class="display-1 my-4">Vídeo em destaque</div>
-            <featured-video></featured-video>
+            <featured-video :feature="feature"></featured-video>
         </v-flex>
         <v-flex class="px-3" xs12 md5 lg4>
             <div class="display-1 my-4">+ Vídeos</div>
@@ -23,8 +23,14 @@
             FeaturedVideo
         },
 
+        computed: {
+            feature () {
+                return this.$store.state.videos.feature
+            }
+        },
+
         mounted () {
-            this.$store.dispatch('getVideos')
+            this.$store.dispatch('getVideos', { quantity: 4 })
         }
     }
 </script>

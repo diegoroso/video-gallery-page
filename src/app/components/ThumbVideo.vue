@@ -1,13 +1,13 @@
 <template>
     <div class="thumb">
         <div class="thumb__media mr-2">
-            <div class="thumb__media__img" :style="`background-image: url(${video.image.url});`"></div>
-            <div class="thumb__media__time px-1" v-text="video.time"></div>
+            <div class="thumb__media__img" :style="`background-image: url(${thumb.image.url});`"></div>
+            <div class="thumb__media__time px-1" v-text="thumb.time"></div>
             <div class="thumb__media__shadow"></div>
         </div>
         <div class="thumb__description">
-            <p class="thumb__description__titles ma-0" v-text="video.title"></p>
-            <div class="thumb__description__views"><ico icon="views-ico gray-ico mr-2"></ico> {{ video.views }} views</div>
+            <p class="thumb__description__titles ma-0" v-text="thumb.title"></p>
+            <div class="thumb__description__views"><ico icon="views-ico gray-ico mr-2"></ico> {{ thumb.views }} views</div>
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@
         },
 
         props: {
-            video: {
+            thumb: {
                 type: Object,
                 required: true
             }

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default new class SearchService {
 
-    getChannelList (nextPage = null) {
+    getChannelList (params) {
         return axios({
             url: '/search',
             method: 'get',
@@ -11,14 +11,12 @@ export default new class SearchService {
             params: {
                 key: config.API_KEY,
                 channelId: 'UC8GoAzCU5Gpiys30veuAtmg',
-                maxResults: 20,
                 type: 'video',
                 part: 'snippet',
-                pageToken: nextPage
+                order: 'relevance',
+                maxResults: params.quantity,
+                pageToken: params.nextPage
             }
-        }).then(response => {
-            const ids = response.data.items.map(item => item.id.videoId)
-            return ids
         })
     }
 
@@ -35,9 +33,6 @@ export default new class SearchService {
             params: {
                 key: config.API_KEY,
                 id: idsText,
-                maxResults: 20,
-                type: 'video',
-                order: 'date',
                 part: 'snippet, contentDetails, statistics'
             }
         }).then(response => response.data.items)
