@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="description">
         <div class="title" v-text="title"></div>
         <div class="body-1 mt-3" v-text="description"></div>
     </div>
@@ -22,4 +22,8 @@
     }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    .description {
+        min-height: 50px;
+    }
+</style>

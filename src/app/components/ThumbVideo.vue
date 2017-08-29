@@ -100,5 +100,11 @@
                 font-weight: bold;
             }
         }
+
+        &:hover {
+            .thumb__media__shadow {
+                background: transparent;
+            }
+        }
     }
 </style>

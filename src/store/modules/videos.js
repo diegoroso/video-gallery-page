@@ -20,6 +20,10 @@ export default {
     },
 
     actions: {
+        changeFeature ({ commit }, video) {
+            commit('setFeature', video)
+        },
+
         getVideos ({ commit }, params) {
             VideosService.getChannelList(params).then(response => {
                 commit('setChannel', response.data)

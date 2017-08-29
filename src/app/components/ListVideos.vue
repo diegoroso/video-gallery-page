@@ -3,9 +3,10 @@
         <div id="card" class="custom-card">
             <template v-for="(video, index) in videos">
                 <thumb-video
-                    :key="index"
+                    @click.native="changeFeature(video)"
+                    class="custom-card__thumb my-2"
                     :thumb="video"
-                    class="my-2"
+                    :key="index"
                 ></thumb-video>
             </template>
         </div>
@@ -45,6 +46,9 @@
         },
 
         methods: {
+            changeFeature (feature) {
+                this.$store.dispatch('changeFeature', feature)
+            },
             moreVideos () {
                 this.loader = true
                 this.$store.dispatch('getVideos', { quantity: 4, nextPage: this.channel.nextPageToken })
@@ -54,7 +58,7 @@
                             const card = document.getElementById('card')
                             card.scrollTop = 420 * this.more
                             this.loader = false
-                        }, 500)
+                        }, 1000)
                     })
             }
         }
@@ -65,6 +69,10 @@
     .custom-card {
         height: 420px;
         overflow: auto;
+
+        &__thumb {
+            cursor: pointer;
+        }
     }
 
     .btn-more {
