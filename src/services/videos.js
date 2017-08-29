@@ -13,9 +13,9 @@ export default new class SearchService {
                 channelId: 'UC8GoAzCU5Gpiys30veuAtmg',
                 type: 'video',
                 part: 'snippet',
-                order: 'relevance',
                 maxResults: params.quantity,
-                pageToken: params.nextPage
+                pageToken: params.nextPage,
+                q: params.search
             }
         })
     }

@@ -37,7 +37,7 @@
             <search :animate="false" class="mb-2"></search>
             <v-card class="ma-0">
                 <v-list class="navigation__menu py-0">
-                    <v-list-tile v-for="item in items" :key="item.title">
+                    <v-list-tile v-for="item in items" :key="item.title" :href="item.href">
                         <v-list-tile-action>
                             <ico :icon="item.icon"></ico>
                         </v-list-tile-action>

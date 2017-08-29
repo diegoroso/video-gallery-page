@@ -1,12 +1,12 @@
 <template>
-    <div class="thumb">
+    <div class="thumb my-2" @click="changeFeature">
         <div class="thumb__media mr-2">
             <div class="thumb__media__img" :style="`background-image: url(${thumb.image.url});`"></div>
             <div class="thumb__media__time px-1" v-text="thumb.time"></div>
             <div class="thumb__media__shadow"></div>
         </div>
         <div class="thumb__description">
-            <p class="thumb__description__titles ma-0" v-text="thumb.title"></p>
+            <p class="thumb__description__titles my-2" v-text="thumb.title"></p>
             <div class="thumb__description__views"><ico icon="views-ico gray-ico mr-2"></ico> {{ thumb.views }} views</div>
         </div>
     </div>
@@ -27,12 +27,19 @@
                 type: Object,
                 required: true
             }
+        },
+
+        methods: {
+            changeFeature () {
+                this.$store.dispatch('changeFeature', this.thumb)
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
     .thumb {
+        cursor: pointer;
         @media (min-width: 600px) {
             display: flex;
         }

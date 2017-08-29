@@ -9,13 +9,16 @@ export default {
 
     mutations: {
         setFeature (state, data) {
-            state.feature = data
+            state.feature = Object.assign({}, data)
         },
         setChannel (state, data) {
             state.channel = data
         },
         setVideo (state, video) {
             state.data.push(video)
+        },
+        clearVideos (state) {
+            state.data = []
         }
     },
 
@@ -48,6 +51,10 @@ export default {
                         }
                         commit('setVideo', video)
                     })
+
+                    if (!data[0] && !params.nextPage) {
+                        commit('clearVideos')
+                    }
                 })
             })
         }

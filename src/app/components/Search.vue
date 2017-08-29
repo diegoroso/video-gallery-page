@@ -35,7 +35,13 @@
                 }
             },
             search () {
-                alert(this.searchValue)
+                if (this.searchValue.replace(/\s/g, '') === '') {
+                    this.searchValue = ''
+                } else {
+                    this.$router.push({ path: 'search', query: { q: this.searchValue } })
+                    this.$refs.input.blur()
+                    this.searchValue = ''
+                }
             }
         }
     }

@@ -3,14 +3,13 @@
         <div id="card" class="custom-card">
             <template v-for="(video, index) in videos">
                 <thumb-video
-                    @click.native="changeFeature(video)"
-                    class="custom-card__thumb my-2"
                     :thumb="video"
                     :key="index"
                 ></thumb-video>
             </template>
         </div>
         <v-btn
+            v-if="channel.nextPageToken"
             @click.native="moreVideos"
             class="btn-more ma-0 mt-3"
             :loading="loader"
@@ -46,9 +45,6 @@
         },
 
         methods: {
-            changeFeature (feature) {
-                this.$store.dispatch('changeFeature', feature)
-            },
             moreVideos () {
                 this.loader = true
                 this.$store.dispatch('getVideos', { quantity: 4, nextPage: this.channel.nextPageToken })
@@ -69,10 +65,6 @@
     .custom-card {
         height: 420px;
         overflow: auto;
-
-        &__thumb {
-            cursor: pointer;
-        }
     }
 
     .btn-more {
