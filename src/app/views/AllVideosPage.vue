@@ -1,9 +1,10 @@
 <template>
     <div>
-        <div class="display-1 my-4">Todos os vídeos do Canal</div>
+        <div class="display-1 my-4 color-default">Todos os vídeos do Canal</div>
         <v-layout v-if="videos" row wrap>
             <v-flex v-for="(video, index) in videos" :key="index" xs12 md4 lg3>
                 <thumb-video
+                    @click.native="openModal"
                     :thumb="video"
                 ></thumb-video>
             </v-flex>
@@ -19,7 +20,7 @@
                 :disable="loader"
                 outline>Carregar mais videos...</v-btn>
         </div>
-        <video-modal></video-modal>
+        <video-modal :open="modal"></video-modal>
     </div>
 </template>
 
@@ -46,12 +47,14 @@
 
         data () {
             return {
-                loader: false,
-                modal: false
+                loader: false
             }
         },
 
         methods: {
+            openModal () {
+                this.$store.dispatch('toggleModal')
+            },
             moreVideos () {
                 this.loader = true
                 this.$store.dispatch('getVideos', { quantity: 12, nextPage: this.channel.nextPageToken })

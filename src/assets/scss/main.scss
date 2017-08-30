@@ -5,3 +5,7 @@
 @import "./partials/vuetify-custom";
 @import "./partials/header";
 @import "./partials/dialog";
+
+.color-default {
+    color: $color-default;
+}

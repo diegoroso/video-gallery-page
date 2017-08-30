@@ -58,7 +58,7 @@
             }
             &.blue-ico {
                 background-position-x: 0px;
-                background-position-y: 0px;
+                background-position-y: -42px;
             }
         }
 
@@ -66,7 +66,7 @@
             width: 19px;
             height: 19px;
             background-position-x: 0px;
-            background-position-y: 0px;
+            background-position-y: -62px;
         }
     }
 </style>

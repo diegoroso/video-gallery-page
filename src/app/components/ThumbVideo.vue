@@ -6,7 +6,7 @@
             <div class="thumb__media__shadow"></div>
         </div>
         <div class="thumb__description">
-            <p class="thumb__description__titles my-2" v-text="thumb.title"></p>
+            <p class="thumb__description__titles my-2 color-default" v-text="thumb.title"></p>
             <div class="thumb__description__views"><ico icon="views-ico gray-ico mr-2"></ico> {{ thumb.views }} views</div>
         </div>
     </div>

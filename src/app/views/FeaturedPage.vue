@@ -1,11 +1,11 @@
 <template>
     <v-layout row wrap>
         <v-flex class="px-3" xs12 md7 lg8>
-            <div class="display-1 my-4">Vídeo em destaque</div>
+            <div class="display-1 my-4 color-default">Vídeo em destaque</div>
             <featured-video :feature="feature"></featured-video>
         </v-flex>
         <v-flex class="px-3" xs12 md5 lg4>
-            <div class="display-1 my-4">+ Vídeos</div>
+            <div class="display-1 my-4 color-default">+ Vídeos</div>
             <list-videos></list-videos>
         </v-flex>
     </v-layout>

@@ -40,7 +40,8 @@ export default {
                             description: item.snippet.description,
                             time: item.contentDetails.duration,
                             views: item.statistics.viewCount,
-                            likes: item.statistics.likeCount
+                            likes: item.statistics.likeCount,
+                            date: item.snippet.publishedAt
                         }
                         return dataParams
                     })

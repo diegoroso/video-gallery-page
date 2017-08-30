@@ -1,15 +1,11 @@
 <template>
     <div class="description">
-        <v-layout>
-            <v-flex xs10>
-                <div class="title" v-text="title"></div>
-            </v-flex>
-            <v-flex xs2>
-                <ico icon="views-ico gray-ico" v-tooltip:left="{ html: 'Top tooltip' }"></ico>
-                <ico icon="views-ico gray-ico" v-tooltip:right="{ html: 'Top tooltip' }"></ico>
-            </v-flex>
-        </v-layout>
-        <div class="body-1 mt-3" v-text="description"></div>
+        <div class="icons">
+            <ico v-tooltip:left="{ html: `${feature.views} views` }" icon="views-ico blue-ico"></ico>
+            <ico v-tooltip:left="{ html: feature.date }" class="ml-1" icon="date-ico"></ico>
+        </div>
+        <div class="title color-default" v-text="feature.title"></div>
+        <div class="body-1 mt-3" v-text="feature.description"></div>
     </div>
 </template>
 
@@ -23,14 +19,9 @@
             Ico
         },
 
-        props: {
-            title: {
-                type: String,
-                required: true
-            },
-            description: {
-                type: String,
-                required: true
+        computed: {
+            feature () {
+                return this.$store.state.videos.feature
             }
         }
     }
@@ -38,7 +29,18 @@
 
 <style lang="scss" scoped>
     .description {
+        position: relative;
         min-height: 50px;
+
+        .icons {
+            position: absolute;
+            display: flex;
+            right: 0;
+        }
+
+        .title {
+            padding-right: 50px;
+        }
 
         .body-1 {
             word-wrap: break-word;
