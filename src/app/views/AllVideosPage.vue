@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="display-1 my-4 color-default">Todos os vídeos do Canal</div>
-        <v-layout v-if="videos" row wrap>
+        <v-layout v-if="videos[0]" row wrap>
             <v-flex v-for="(video, index) in videos" :key="index" xs12 md4 lg3>
                 <thumb-video
                     @click.native="openModal"
@@ -12,7 +12,7 @@
         <div v-else class="text-xs-center my-4">
             <v-progress-circular indeterminate v-bind:size="50" class="red--text"></v-progress-circular>
         </div>
-        <div v-if="channel.nextPageToken" class="text-xs-center">
+        <div v-if="channel.nextPageToken && videos[0]" class="text-xs-center">
             <v-btn
                 @click.native="moreVideos"
                 class="loader-more ma-0 mt-4"
@@ -20,7 +20,7 @@
                 :disable="loader"
                 outline>Carregar mais videos...</v-btn>
         </div>
-        <video-modal :open="modal"></video-modal>
+        <video-modal></video-modal>
     </div>
 </template>
 

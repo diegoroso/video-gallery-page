@@ -6,6 +6,10 @@
 @import "./partials/header";
 @import "./partials/dialog";
 
+body {
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
 .color-default {
     color: $color-default;
 }

@@ -1,8 +1,8 @@
 <template>
     <div class="description">
         <div class="icons">
-            <ico v-tooltip:left="{ html: `${feature.views} views` }" icon="views-ico blue-ico"></ico>
-            <ico v-tooltip:left="{ html: feature.date }" class="ml-1" icon="date-ico"></ico>
+            <ico v-tooltip:left="{ html: `${views} views` }" icon="views-ico blue-ico"></ico>
+            <ico v-tooltip:left="{ html: date }" class="ml-1" icon="date-ico"></ico>
         </div>
         <div class="title color-default" v-text="feature.title"></div>
         <div class="body-1 mt-3" v-text="feature.description"></div>
@@ -11,6 +11,7 @@
 
 <script>
     import Ico from '_components/Icons.vue'
+    import { date, views } from '_app/filters/index.js'
 
     export default {
         name: 'DescriptionVideo',
@@ -22,6 +23,12 @@
         computed: {
             feature () {
                 return this.$store.state.videos.feature
+            },
+            date () {
+                return date(this.$store.state.videos.feature.date, 'DD [de] MMMM [de] YYYY')
+            },
+            views () {
+                return views(this.$store.state.videos.feature.views)
             }
         }
     }

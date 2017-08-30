@@ -26,7 +26,7 @@
                     outline>Carregar mais videos...</v-btn>
             </div>
         </template>
-        <video-modal :open="modal"></video-modal>
+        <video-modal></video-modal>
     </div>
 </template>
 
